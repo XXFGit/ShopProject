@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>Color Admin | Login Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+
+    <#include "commom-html/css.html">
+
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<div class="login-cover">
+	    <div class="login-cover-bg"></div>
+	</div>
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+	    <!-- begin login -->
+        <div class="login login-v2" data-pageload-addclass="animated flipInX">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <span class="logo"></span> 管理员登录
+                    <small></small>
+                </div>
+              <!--  <div class="icon">
+                    <i class="fa fa-sign-in"></i>
+                </div>-->
+            </div>
+            <!-- end brand -->
+            <div class="login-content">
+                <form id="loginFrom" class="margin-bottom-0">
+                    <div class="form-group m-b-20">
+                        <input type="text" name="userName" value="admin" class="form-control input-lg" placeholder="用户名" />
+                    </div>
+                    <div class="form-group m-b-20">
+                        <input type="text" name="password" value="123456" class="form-control input-lg" placeholder="密码" />
+                    </div>
+                        <div class="checkbox m-b-20">
+                        <label><input type="checkbox" /> 记住我 </label>
+                    </div>
+                    <div class="login-buttons">
+                        <button type="button" onclick="dologin()" class="btn btn-success btn-block btn-lg">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end login -->
+        
+
+
+	</div>
+	<!-- end page container -->
+
+    <input type="hidden" value="${ctx}" id="ctx">
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="${ctx}/admin/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="${ctx}/admin/assets/crossbrowserjs/html5shiv.js"></script>
+    <script src="${ctx}/admin/assets/crossbrowserjs/respond.min.js"></script>
+    <script src="${ctx}/admin/assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="${ctx}/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <!-- ================== END BASE JS ================== -->
+
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="${ctx}/admin/assets/plugins/gritter/js/jquery.gritter.js"></script>
+    <script src="${ctx}/admin/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/sparkline/jquery.sparkline.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${ctx}/admin/assets/js/dashboard.min.js"></script>
+    <script src="${ctx}/admin/assets/js/apps.min.js"></script>
+    <script src="${ctx}admin/assets/plugins/jquery-liMarquee/jquery.liMarquee.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+    <script src="${ctx}/admin/assets/plugins/layer/layer.js"></script>
+    <script src="${ctx}/admin/assets/plugins/vue/vue.js"></script>
+
+    <script src="${ctx}/admin/content/js/common.js"></script>
+    <script src="${ctx}/admin/assets/plugins/jquery/jquery.serializejson.min.js"></script>
+
+	<script>
+        $(document).ready(function() {
+            App.init();
+            Dashboard.init();
+        });
+
+        $(document).keyup(function(event){
+            if(event.keyCode == 13){
+                dologin();
+            }
+        });
+
+		function dologin(){
+            var formData = $("#loginFrom").serializeFormToJson();
+            $.ajax({
+                type: 'POST',
+                url: "/dologin.do",
+                data:JSON.stringify(formData),
+                async: false,
+                cache:false,
+                contentType:"application/json; charset=utf-8",
+                success:function(json){
+                    if(json == "success"){
+                        location.href = "/index.do";
+                    }else{
+                        alert("用户名或密码不正确！");
+                        location.reload();
+                    }
+                }
+            });
+        }
+
+	</script>
+	 
+</body>
+</html>
