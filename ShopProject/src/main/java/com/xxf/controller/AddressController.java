@@ -34,10 +34,10 @@ public class AddressController {
             @RequestParam(required = true, defaultValue = "1") Integer pageNum,
             @RequestParam(required = true, defaultValue = "1") Integer pageSize){
         ModelAndView model = new ModelAndView();
-        model.setViewName("/premission/admin");
+        model.setViewName("user/user_address");
         PageHelper.startPage(pageNum,pageSize);
         PageInfo<AddressInfo> pageInfo = this.addressService.getList();
-        model.addObject("adminList",pageInfo.getList());
+        model.addObject("addressList",pageInfo.getList());
         model.addObject("pageInfo",pageInfo);
         return model;
     }

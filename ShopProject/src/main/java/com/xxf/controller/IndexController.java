@@ -18,7 +18,7 @@ public class IndexController {
     @RequestMapping("/form_elements")
     public ModelAndView form_elements(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("form_elements");
+        modelAndView.setViewName("system_css/form_elements");
         modelAndView.addObject("active","form_elements");
         modelAndView.addObject("activeTitle","user");
         return modelAndView;
@@ -27,7 +27,7 @@ public class IndexController {
     @RequestMapping("/table_basic")
     public ModelAndView table_basic(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("table_basic");
+        modelAndView.setViewName("system_css/table_basic");
         modelAndView.addObject("active","table_basic");
         modelAndView.addObject("activeTitle","table_basic");
         return modelAndView;
@@ -36,7 +36,7 @@ public class IndexController {
     @RequestMapping("/icon")
     public ModelAndView icon(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("icon");
+        modelAndView.setViewName("system_css/icon");
         modelAndView.addObject("active","icon");
         modelAndView.addObject("activeTitle","xt_css");
         return modelAndView;
@@ -45,7 +45,7 @@ public class IndexController {
     @RequestMapping("/button")
     public ModelAndView button(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("button");
+        modelAndView.setViewName("system_css/button");
         modelAndView.addObject("active","button");
         modelAndView.addObject("activeTitle","xt_css");
         return modelAndView;
@@ -54,7 +54,7 @@ public class IndexController {
     @RequestMapping("/calendar")
     public ModelAndView calendar(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("calendar");
+        modelAndView.setViewName("system_css/calendar");
         modelAndView.addObject("active","calendar");
         modelAndView.addObject("activeTitle","calendar");
         return modelAndView;
@@ -63,7 +63,7 @@ public class IndexController {
     @RequestMapping("/gallery")
     public ModelAndView gallery(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("gallery");
+        modelAndView.setViewName("system_css/gallery");
         modelAndView.addObject("active","gallery");
         modelAndView.addObject("activeTitle","gallery");
         return modelAndView;
@@ -72,7 +72,7 @@ public class IndexController {
     @RequestMapping("/page_blank")
     public ModelAndView page_blank(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("page_blank");
+        modelAndView.setViewName("system_css/page_blank");
         modelAndView.addObject("active","page_blank");
         modelAndView.addObject("activeTitle","page_blank");
         return modelAndView;

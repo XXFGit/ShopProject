@@ -20,11 +20,8 @@ public class AddressServiceImpl implements AddressService {
     public PageInfo<AddressInfo> getList() {
         AddressInfoExample example = new AddressInfoExample();
         List<AddressInfo> list = this.mapper.selectByExample(example);
-        if(list!=null && list.size()>0){
-            PageInfo pageInfo = new PageInfo(list);
-            return pageInfo;
-        }
-        return null;
+        PageInfo pageInfo = new PageInfo(list);
+        return pageInfo;
     }
 
     @Override
