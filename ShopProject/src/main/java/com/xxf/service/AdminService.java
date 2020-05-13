@@ -1,5 +1,6 @@
 package com.xxf.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xxf.model.AdminInfo;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Set;
 
 public interface AdminService {
 
-    List<AdminInfo> getList();
+    PageInfo<AdminInfo> getList();
 
     Boolean insert(AdminInfo adminInfo);
 

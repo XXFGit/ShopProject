@@ -1,5 +1,7 @@
 package com.xxf.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xxf.dao.AdminInfoMapper;
 import com.xxf.model.AdminInfo;
 import com.xxf.model.AdminInfoExample;
@@ -7,6 +9,7 @@ import com.xxf.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Service("adminService")
@@ -16,11 +19,12 @@ public class AdminServiceImpl implements AdminService {
     private AdminInfoMapper mapper;
 
     @Override
-    public List<AdminInfo> getList() {
+    public PageInfo<AdminInfo> getList() {
         AdminInfoExample example = new AdminInfoExample();
         List<AdminInfo> list = this.mapper.selectByExample(example);
         if(list!=null && list.size()>0){
-            return list;
+            PageInfo pageInfo = new PageInfo(list);
+            return pageInfo;
         }
         return null;
     }

@@ -86,6 +86,16 @@
 										</#list>
 									</tbody>
 								</table>
+								<!--分页-->
+								<div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+									<a href="${ctx}/admin/index.do" class="paginate_button previous ">首页</a>
+									<span>
+										<#list 1..pageInfo.pages as t>
+											<a href="${ctx}/admin/index.do?pageNum=${t}" class="paginate_button <#if pageInfo.pageNum==t> current </#if>" >${t}</a>
+										</#list>
+                                    </span>
+									<a href="${ctx}/admin/index.do?pageNum=pageInfo.pages" class="paginate_button next" >尾页</a>
+								</div>
 							</div>
 						</div>
 					</div>

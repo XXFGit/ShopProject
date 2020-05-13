@@ -1,5 +1,7 @@
 package com.xxf.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xxf.Utils.ResultUtil;
 import com.xxf.Utils.UUIDUtils;
 import com.xxf.model.AdminRoleResources;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -45,11 +48,14 @@ public class RoleController {
      * @Date: 2020/4/9 下午 03:00
      */
     @RequestMapping("/index")
-    public ModelAndView index(){
+    public ModelAndView index( @RequestParam(required = true, defaultValue = "1") Integer pageNum,
+                               @RequestParam(required = true, defaultValue = "10") Integer pageSize){
         ModelAndView model = new ModelAndView();
+        PageHelper.startPage(pageNum,pageSize);
         model.setViewName("/premission/role");
-        List<Role> list = this.roleService.getList();
-        model.addObject("roleList",list);
+        PageInfo<Role> pageInfo = this.roleService.getList();
+        model.addObject("roleList",pageInfo.getList());
+        model.addObject("pageInfo",pageInfo);
         return model;
     }
 

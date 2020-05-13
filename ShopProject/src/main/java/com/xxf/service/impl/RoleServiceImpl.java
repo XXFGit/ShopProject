@@ -1,5 +1,6 @@
 package com.xxf.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.xxf.dao.RoleMapper;
 import com.xxf.model.Role;
 import com.xxf.model.RoleExample;
@@ -16,11 +17,12 @@ public class RoleServiceImpl implements RoleService {
     private RoleMapper mapper;
 
     @Override
-    public List<Role> getList() {
+    public PageInfo<Role> getList() {
         RoleExample example = new RoleExample();
         List<Role> list = this.mapper.selectByExample(example);
         if(list!=null && list.size()>0){
-            return list;
+            PageInfo pageInfo = new PageInfo(list);
+            return pageInfo;
         }
         return null;
     }

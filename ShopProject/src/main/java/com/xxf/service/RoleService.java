@@ -1,12 +1,13 @@
 package com.xxf.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xxf.model.Role;
 
 import java.util.List;
 
 public interface RoleService {
 
-    List<Role> getList();
+    PageInfo<Role> getList();
 
     Boolean insert(Role adminInfo);
 

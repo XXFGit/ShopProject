@@ -68,6 +68,11 @@
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.1.2</version>
+        </dependency>
         <!-- End: mybatis依赖 -->
 
         <!-- Begin: 数据库依赖包 -->

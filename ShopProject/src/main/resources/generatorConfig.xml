@@ -18,7 +18,7 @@
 
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/shiro" userId="root"
+                        connectionURL="jdbc:mysql://localhost:3306/shopproject" userId="root"
                         password="159797">
         </jdbcConnection>
 
@@ -61,7 +61,7 @@
         <table tableName="admin_role_resources" domainObjectName="AdminRoleResources"></table>
         <table tableName="role" domainObjectName="Role"></table>-->
 
-        <table tableName="user_info" domainObjectName="UserInfo"></table>
+        <table tableName="address_info" domainObjectName="AddressInfo"></table>
 
     </context>
 </generatorConfiguration>
