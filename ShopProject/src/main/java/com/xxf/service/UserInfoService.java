@@ -1,11 +1,11 @@
 package com.xxf.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xxf.model.UserInfo;
 
-import java.util.List;
 
 public interface UserInfoService {
 
-    List<UserInfo> findAll();
+    PageInfo<UserInfo> findAll();
 
 }

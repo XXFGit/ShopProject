@@ -1,5 +1,8 @@
 package com.xxf.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.xxf.model.Role;
 import com.xxf.model.UserInfo;
 import com.xxf.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +20,14 @@ public class UserController {
     private UserInfoService userInfoService;
 
     @RequestMapping("/index")
-    public ModelAndView index(){
+    public ModelAndView index(@RequestParam(required = true, defaultValue = "1") Integer pageNum,
+                              @RequestParam(required = true, defaultValue = "10") Integer pageSize){
         ModelAndView model = new ModelAndView();
-        List<UserInfo> userList = this.userInfoService.findAll();
+        PageHelper.startPage(pageNum,pageSize);
+        PageInfo<UserInfo> pageInfo  = this.userInfoService.findAll();
         model.setViewName("user/user");
-        model.addObject("userList",userList);
+        model.addObject("userList",pageInfo.getList());
+        model.addObject("pageInfo",pageInfo);
         return model;
     }
 

@@ -1,5 +1,6 @@
 package com.xxf.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.xxf.dao.UserInfoMapper;
 import com.xxf.model.UserInfo;
 import com.xxf.model.UserInfoExample;
@@ -16,11 +17,12 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserInfoMapper mapper;
 
     @Override
-    public List<UserInfo> findAll() {
+    public PageInfo<UserInfo>   findAll() {
         UserInfoExample example = new UserInfoExample();
         List<UserInfo> list = this.mapper.selectByExample(example);
         if(list!=null && list.size()>0){
-            return list;
+            PageInfo pageInfo = new PageInfo(list);
+            return pageInfo;
         }
         return null;
     }
