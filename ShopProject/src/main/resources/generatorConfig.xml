@@ -61,7 +61,7 @@
         <table tableName="admin_role_resources" domainObjectName="AdminRoleResources"></table>
         <table tableName="role" domainObjectName="Role"></table>-->
 
-        <table tableName="address_info" domainObjectName="AddressInfo"></table>
+        <table tableName="item_info" domainObjectName="ItemInfo"></table>
 
     </context>
 </generatorConfiguration>

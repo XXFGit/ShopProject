@@ -38,7 +38,7 @@ public class AdminController {
     @RequestMapping("/index")
     public ModelAndView index(
             @RequestParam(required = true, defaultValue = "1") Integer pageNum,
-            @RequestParam(required = true, defaultValue = "1") Integer pageSize){
+            @RequestParam(required = true, defaultValue = "10") Integer pageSize){
         ModelAndView model = new ModelAndView();
         model.setViewName("/premission/admin");
         PageHelper.startPage(pageNum,pageSize);
