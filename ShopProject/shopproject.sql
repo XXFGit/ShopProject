@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 15/05/2020 17:14:01
+ Date: 18/05/2020 18:18:05
 */
 
 SET NAMES utf8mb4;
@@ -115,34 +115,32 @@ CREATE TABLE `admin_role_resources`  (
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 295 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 360 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of admin_role_resources
 -- ----------------------------
-INSERT INTO `admin_role_resources` VALUES (272, 1, 1, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (273, 1, 2, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (274, 1, 3, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (275, 1, 4, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (276, 1, 13, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (277, 1, 14, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (278, 1, 15, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (279, 1, 5, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (280, 1, 6, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (281, 1, 11, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (282, 1, 12, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (283, 1, 23, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (284, 1, 16, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (285, 1, 17, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (286, 1, 18, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (287, 1, 19, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (288, 1, 20, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (289, 1, 21, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (290, 1, 22, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (291, 1, 24, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (292, 1, 25, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (293, 1, 26, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
-INSERT INTO `admin_role_resources` VALUES (294, 1, 27, '2020-05-08 14:59:35', '2020-05-08 14:59:35');
+INSERT INTO `admin_role_resources` VALUES (339, 1, 1, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (340, 1, 2, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (341, 1, 3, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (342, 1, 4, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (343, 1, 15, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (344, 1, 5, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (345, 1, 6, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (346, 1, 11, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (347, 1, 12, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (348, 1, 23, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (349, 1, 16, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (350, 1, 17, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (351, 1, 18, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (352, 1, 19, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (353, 1, 20, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (354, 1, 21, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (355, 1, 22, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (356, 1, 24, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (357, 1, 25, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (358, 1, 26, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
+INSERT INTO `admin_role_resources` VALUES (359, 1, 27, '2020-05-18 11:23:14', '2020-05-18 11:23:14');
 
 -- ----------------------------
 -- Table structure for cart_info
@@ -210,12 +208,19 @@ CREATE TABLE `item_info`  (
   `stock` int(11) NULL DEFAULT NULL COMMENT '?存?量',
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '商品?情（html存?）',
   `is_remm` tinyint(2) NULL DEFAULT NULL COMMENT '是否上架',
+  `view_count` int(11) NULL DEFAULT NULL COMMENT '浏览量',
+  `buy_count` int(11) NULL DEFAULT NULL COMMENT '下单量',
   `create_time` datetime NULL DEFAULT NULL COMMENT '?建??',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新??',
   `spare_1` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '?用字段1',
   `spare_2` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '?用字段2',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of item_info
+-- ----------------------------
+INSERT INTO `item_info` VALUES ('1', '马自达cx-4', '2020款 2.0L 自动两驱蓝天活力版', '743DE4297EB84B6FA7358822C491490A', '汽车用品', 139800, 100, '马自达CX-4的造型源自于KOERU越概念车，KOERU越概念车于2015年的法兰克福车展全球首发，展示了马自达产品最新的设计理念。而在2015年的广州车展上，KOERU越概念车来到中国进行了中国首发。 [1] \r\n2016年6月21日，马自达CX-4正式亮相于发布会现场。CX-4金属色装饰体、豪华紧凑车身，配备大尺寸车轮', 0, 0, 0, '2020-05-26 14:48:45', '2020-05-18 17:54:59', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for item_type
@@ -225,6 +230,7 @@ CREATE TABLE `item_type`  (
   `id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `type_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '分?名?',
   `parent_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '父ID',
+  `parent_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '父类名称',
   `sort_order` int(11) NULL DEFAULT NULL COMMENT '排序',
   `stopped` tinyint(2) NULL DEFAULT NULL COMMENT '是否?用',
   `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述信息',
@@ -232,6 +238,13 @@ CREATE TABLE `item_type`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '修改??',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of item_type
+-- ----------------------------
+INSERT INTO `item_type` VALUES ('65341E64A525478C922F96E55BFA1A64', '运动健康', '0', '根节点', 0, 0, '运动健康运动健康运动健康', '2020-05-18 10:34:29', '2020-05-18 10:34:29');
+INSERT INTO `item_type` VALUES ('743DE4297EB84B6FA7358822C491490A', '汽车用品', '0', '根节点', 0, 0, '汽车用品汽车用品汽车用品', '2020-05-18 11:13:59', '2020-05-18 11:13:59');
+INSERT INTO `item_type` VALUES ('F26F13F3FF5D44D2BB580DCC0DD0A9E2', '汽车装饰', '743DE4297EB84B6FA7358822C491490A', '汽车用品', 0, 0, '汽车装饰汽车装饰汽车装饰汽车装饰', '2020-05-18 11:26:55', '2020-05-18 11:26:55');
 
 -- ----------------------------
 -- Table structure for order_info
@@ -274,7 +287,7 @@ CREATE TABLE `role`  (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES (1, '超级管理员', '超级管理001666', '2020-04-10 22:36:10', '2020-04-21 15:47:33');
+INSERT INTO `role` VALUES (1, '超级管理员', '超级管理00', '2020-04-10 22:36:10', '2020-05-18 11:19:53');
 INSERT INTO `role` VALUES (2, '平台管理员', '发顺丰', '2020-04-13 22:47:00', '2020-04-13 22:47:00');
 
 -- ----------------------------
