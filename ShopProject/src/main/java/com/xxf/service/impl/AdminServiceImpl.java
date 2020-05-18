@@ -22,11 +22,8 @@ public class AdminServiceImpl implements AdminService {
     public PageInfo<AdminInfo> getList() {
         AdminInfoExample example = new AdminInfoExample();
         List<AdminInfo> list = this.mapper.selectByExample(example);
-        if(list!=null && list.size()>0){
-            PageInfo pageInfo = new PageInfo(list);
-            return pageInfo;
-        }
-        return null;
+        PageInfo pageInfo = new PageInfo(list);
+        return pageInfo;
     }
 
     @Override

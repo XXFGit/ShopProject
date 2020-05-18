@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>Color Admin | Blank Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+
+	<!--css文件引入开始-->
+	<#include "../commom-html/css.html">
+	<!--css文件结束-->
+
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- 顶部头部开始-->
+		<#include "../commom-html/header.html">
+		<!-- 顶部头部结束 -->
+
+		<!-- begin #sidebar 左边菜单开始-->
+		<#include "../commom-html/left_menu.html">
+		<!-- end #sidebar---结束 -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!--<ol class="breadcrumb pull-right">
+				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Page Options</a></li>
+				<li class="active">Blank Page</li>
+			</ol>-->
+			<h1 class="page-header">商品管理 <small>商品列表</small></h1>
+
+			<div class="row">
+				<!-- begin col-12 -->
+				<div class="col-md-12">
+					<!-- begin panel -->
+					<div class="panel panel-inverse">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<a href="${ctx}/item/toAddOrEditItem.do" class="btn btn-primary">新增</a>
+								<#if itemList?? && (itemList?size > 0) >
+								<table id="data-table" class="table table-striped table-bordered">
+									<thead>
+										<tr>
+											<th>商品名称</th>
+											<th>商品分类</th>
+											<th>价格</th>
+											<th>库存</th>
+											<th>是否上架</th>
+											<th>浏览量</th>
+											<th>下单量</th>
+											<th>商品概述</th>
+											<th>商品详情</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<#list itemList as item>
+										<tr class="odd gradeX">
+											<td>${item.itemTitle!}</td>
+											<td>${item.itemTypeName!}</td>
+											<td>${item.price!}</td>
+											<td>${item.stock!}</td>
+											<td><#if item.isRemm==1> 是 <#else> 否 </#if></td>
+											<td>${item.viewCount!}</td>
+											<td>${item.buyCount!}</td>
+											<td>${item.sumary!}</td>
+											<td><a href="javascript:viewContent('${item.id}');" class="btn btn-info btn-xs">商品详情</a></td>
+											<td>
+												<a href="${ctx}/item/toAddOrEditItem.do?id=${item.id}" class="btn btn-info">修改</a>
+												<a href="javascript:del('${item.id}');" class="btn btn-danger">删除</a>
+											</td>
+										</tr>
+										</#list>
+									</tbody>
+								</table>
+								<!--分页-->
+								<div class="dataTables_paginate paging_simple_numbers" id="data-table_paginate">
+									<a href="${ctx}/item/index.do" class="paginate_button previous ">首页</a>
+									<span>
+										<#list 1..pageInfo.pages as t>
+											<a href="${ctx}/item/index.do?pageNum=${t}" class="paginate_button <#if pageInfo.pageNum==t> current </#if>" >${t}</a>
+										</#list>
+									</span>
+									<a href="${ctx}/item/index.do?pageNum=pageInfo.pages" class="paginate_button next" >尾页</a>
+								</div>
+								<#else>
+								<tr class="odd gradeX">
+									<p>暂无数据...</p>
+								</tr>
+								</#if>
+							</div>
+						</div>
+					</div>
+					<!-- end panel -->
+				</div>
+				<!-- end col-12 -->
+			</div>
+		</div>
+		<!-- end #content -->
+
+		<div class="modal fade" tabindex="-1" role="dialog" id="formModel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">商品分类管理</h4>
+					</div>
+					<div class="modal-body">
+						<form id="dataForm">
+							<input type="hidden" v-model="type.id" name="id">
+							<input type="hidden" v-model="type.parentId" name="parentId">
+							<div class="form-group" v-if="type.parentId!=''">
+								<label  class="control-label">上级分类:</label>
+								<input type="text" v-model="type.parentName" readonly class="form-control" name="parentName">
+							</div>
+							<div class="form-group">
+								<label class="control-label">分类名称:</label>
+								<input type="text" v-model="type.typeName" class="form-control" name="typeName">
+							</div>
+							<div class="form-group">
+								<label class="control-label">描述:</label>
+								<input type="text" v-model="type.description"  class="form-control" name="description" >
+							</div>
+							<div class="form-group">
+								<label class="control-label">是否停用:</label>
+								<input type="radio" v-model="type.stopped" name="stopped" value="0">否
+								<input type="radio" v-model="type.stopped" name="stopped" value="1">是
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" onclick="save()" class="btn btn-primary">保存</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+        <!-- begin theme-panel -->
+        <#include "../commom-html/theme_set.html">
+        <!-- end theme-panel -->
+
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+
+	<!--js文件引入开始-->
+	<#include "../commom-html/js.html">
+	<!--结束-->
+	<script src="${ctx}/admin/item/js/item.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			App.init();
+		});
+	</script>
+	 
+</body>
+</html>

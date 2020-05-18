@@ -10,6 +10,8 @@
     <result column="price" property="price" jdbcType="REAL" />
     <result column="stock" property="stock" jdbcType="INTEGER" />
     <result column="is_remm" property="isRemm" jdbcType="TINYINT" />
+    <result column="view_count" property="viewCount" jdbcType="INTEGER" />
+    <result column="buy_count" property="buyCount" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="spare_1" property="spare1" jdbcType="VARCHAR" />
@@ -77,8 +79,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, item_title, summary, item_type_id, item_type_name, price, stock, is_remm, create_time, 
-    update_time, spare_1, spare_2
+    id, item_title, summary, item_type_id, item_type_name, price, stock, is_remm, view_count, 
+    buy_count, create_time, update_time, spare_1, spare_2
   </sql>
   <sql id="Blob_Column_List" >
     content
@@ -134,14 +136,16 @@
   <insert id="insert" parameterType="com.xxf.model.ItemInfo" >
     insert into item_info (id, item_title, summary, 
       item_type_id, item_type_name, price, 
-      stock, is_remm, create_time, 
-      update_time, spare_1, spare_2, 
-      content)
+      stock, is_remm, view_count, 
+      buy_count, create_time, update_time, 
+      spare_1, spare_2, content
+      )
     values (#{id,jdbcType=VARCHAR}, #{itemTitle,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
       #{itemTypeId,jdbcType=VARCHAR}, #{itemTypeName,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, 
-      #{stock,jdbcType=INTEGER}, #{isRemm,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, 
-      #{content,jdbcType=LONGVARCHAR})
+      #{stock,jdbcType=INTEGER}, #{isRemm,jdbcType=TINYINT}, #{viewCount,jdbcType=INTEGER}, 
+      #{buyCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.xxf.model.ItemInfo" >
     insert into item_info
@@ -169,6 +173,12 @@
       </if>
       <if test="isRemm != null" >
         is_remm,
+      </if>
+      <if test="viewCount != null" >
+        view_count,
+      </if>
+      <if test="buyCount != null" >
+        buy_count,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -210,6 +220,12 @@
       </if>
       <if test="isRemm != null" >
         #{isRemm,jdbcType=TINYINT},
+      </if>
+      <if test="viewCount != null" >
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null" >
+        #{buyCount,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -261,6 +277,12 @@
       <if test="record.isRemm != null" >
         is_remm = #{record.isRemm,jdbcType=TINYINT},
       </if>
+      <if test="record.viewCount != null" >
+        view_count = #{record.viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyCount != null" >
+        buy_count = #{record.buyCount,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -291,6 +313,8 @@
       price = #{record.price,jdbcType=REAL},
       stock = #{record.stock,jdbcType=INTEGER},
       is_remm = #{record.isRemm,jdbcType=TINYINT},
+      view_count = #{record.viewCount,jdbcType=INTEGER},
+      buy_count = #{record.buyCount,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       spare_1 = #{record.spare1,jdbcType=VARCHAR},
@@ -310,6 +334,8 @@
       price = #{record.price,jdbcType=REAL},
       stock = #{record.stock,jdbcType=INTEGER},
       is_remm = #{record.isRemm,jdbcType=TINYINT},
+      view_count = #{record.viewCount,jdbcType=INTEGER},
+      buy_count = #{record.buyCount,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       spare_1 = #{record.spare1,jdbcType=VARCHAR},
@@ -342,6 +368,12 @@
       <if test="isRemm != null" >
         is_remm = #{isRemm,jdbcType=TINYINT},
       </if>
+      <if test="viewCount != null" >
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="buyCount != null" >
+        buy_count = #{buyCount,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -369,6 +401,8 @@
       price = #{price,jdbcType=REAL},
       stock = #{stock,jdbcType=INTEGER},
       is_remm = #{isRemm,jdbcType=TINYINT},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      buy_count = #{buyCount,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       spare_1 = #{spare1,jdbcType=VARCHAR},
@@ -385,6 +419,8 @@
       price = #{price,jdbcType=REAL},
       stock = #{stock,jdbcType=INTEGER},
       is_remm = #{isRemm,jdbcType=TINYINT},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      buy_count = #{buyCount,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       spare_1 = #{spare1,jdbcType=VARCHAR},

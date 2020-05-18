@@ -19,6 +19,10 @@ public class ItemInfo {
 
     private Byte isRemm;
 
+    private Integer viewCount;
+
+    private Integer buyCount;
+
     private Date createTime;
 
     private Date updateTime;
@@ -91,6 +95,22 @@ public class ItemInfo {
 
     public void setIsRemm(Byte isRemm) {
         this.isRemm = isRemm;
+    }
+
+    public Integer getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(Integer viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public Integer getBuyCount() {
+        return buyCount;
+    }
+
+    public void setBuyCount(Integer buyCount) {
+        this.buyCount = buyCount;
     }
 
     public Date getCreateTime() {
